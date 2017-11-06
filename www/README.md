@@ -1,0 +1,1 @@
+最简单的 python 服务端，可以连接数据库，获取 json 数据 使用的是 aiohttp 和 aiomysql 配置，参考 廖大 python 实战捡出来的代码
