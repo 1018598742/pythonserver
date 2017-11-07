@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # _*_ coding = utf-8 _*_
-from www.coroweb import get
+from www.apis import APIValueError
+from www.coroweb import get, post
 from www.models import Runoob
+
 
 '''
 json 输出：
@@ -54,8 +56,30 @@ json 输出：
             age: 12
         }
     }
+    
+json 错误输出：
+    {
+        error: "value:invalid",
+        data: "nameerror",
+        message: ""
+    }
 '''
 @get('/a')
 def get_a():
-    infos = {'name':'fta','age':12}
-    return dict(use = infos)
+    error = ''
+    if error:
+        infos = {'name': 'fta', 'age': 12}
+        return dict(use=infos)
+    else:
+        raise APIValueError('nameerror',message='test error')
+
+'''
+使用命名关键字参数
+'''
+@post('/p')
+def post_p(*,id,request):
+
+    infos = {'name': 'fta', 'age': 12}
+    return dict(use=infos)
+
+
